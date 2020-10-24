@@ -4,11 +4,4 @@
 
 ![The Linux Command Line](./images/linux_command_line.png)
 
-## ``cd -`` => Change the working directory to previous working directory
-
-
-
-
-
-
-
+# [PART-1](PART1.md)

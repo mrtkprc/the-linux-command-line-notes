@@ -128,6 +128,47 @@ You can see all related examples following screenshot.
 
 ![Brace Expansion](images/brace_expansion.png)
 
+## Command Substituion
+
+`` echo $(ls) ``
+
+Command substitution allows us to use the output of a command as an expansion
+
+There is an alternate syntax for command substitution. It uses backquotes instead of dollar sign an parantheses.
+
+![Alternat Paramater Substition](images/altenate_command_subs.png)
+
+## Double Quotes
+
+If we place text inside double quotes, all the special characters used by shell lose their special meanings. Exceptions are following:
+
+-   ## $ (Dolar sign)
+-   ## \ (Backslash)
+-   ## ` (Baktick)
+
+![Double Quotes](images/double_quotes.png)
+
+By default, word splitting looks for the presence of spaces, tabs ajd newlines. Treats them as `delimiters` between words.
+
+![Double Quotes](images/houston.png)
+
+![Spaces](images/cal_space.png)
+
+## To suppress all expansion, use single quotes(' ')
+
+![Single Quotes](images/single_quotes.png)
+
+### Escaping character is \
+
+``echo "\$9.99"``
+
+### To use bell,
+
+``echo -e "Time's up \a"``
+
+## Advanced Keyboard Tricks
+
+
 
 
 

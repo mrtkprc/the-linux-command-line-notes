@@ -1,12 +1,12 @@
 # PART 1 - LEARNING SHELL
 
-### ``cd -`` => Change the working directory to previous working directory
+``cd -`` => Change the working directory to previous working directory
 
-### ``cd ~username`` => Change working directory to home directory of `username`
+``cd ~username`` => Change working directory to home directory of `username`
 
-### ``ls ~ /usr`` => We can even specify multiple directories.
+``ls ~ /usr`` => We can even specify multiple directories.
 
-### ``ls -F`` => It will append a forward slash (/) if the name is a directory.
+ ``ls -F`` => It will append a forward slash (/) if the name is a directory.
 
 ![ls -l output](images/ls_l_output.png)
 
@@ -144,7 +144,7 @@ If we place text inside double quotes, all the special characters used by shell 
 
 -   ## $ (Dolar sign)
 -   ## \ (Backslash)
--   ## ` (Baktick)
+-   ## ` (Backtick)
 
 ![Double Quotes](images/double_quotes.png)
 
@@ -167,6 +167,118 @@ By default, word splitting looks for the presence of spaces, tabs ajd newlines. 
 ``echo -e "Time's up \a"``
 
 ## Advanced Keyboard Tricks
+### Ctrl related commands
+-   ``Ctrl + L`` is equivalent to ``clear``
+-   ``Ctrl + A`` => Move to beginning of line
+-   ``Ctrl + E`` => Move to end of line
+-   ``Ctrl + K`` => Kill text from the cursor to the end of line.
+-   ``Ctrl + U`` => Kill text from the cursor to the beginning of line.
+-   
+### Alt related commands
+-   ``Alt + F`` => Move cursor forward one word
+-   ``Alt + B`` => Move cursor back one word
+-   ``Alt + U`` => Convert one word at cursor location to uppercase
+-   ``Alt + L`` => Convert one word at cursor location to lowercase
+-   ``Alt + D`` => Kill text from the cursor location to end of the current word.
+-   ``Alt + Backspace`` => Kill text from cursor location to beginning of the current word.
+
+``!88`` => You can use related history number command
+
+``!!`` => Repeat last command.
+
+## Permissions
+
+![id](images/id.png)
+
+Like so many things in Linux, it comes from a couple of text file. 
+-   User accounts are defined in the ``/etc/passwd``
+-   Group are defined in the ``/etc/group``
+-   These files are modified along with ``/etc/shadow``
+
+### Detail of ``/etc/passwd``
+
+![](images/etc_passwd.png)
+
+-   mert => means username
+-   x => means existing encrypted password (encrypted passsword is stored in ``/etc/shadow``)
+-   1000 => User id
+-   1000 => Group id
+-   mert,,, => User id info such as full name, phone number etc. 
+-   /home/mert => home directory
+-   /bin/bash => The absolute path of a command or shell. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection. They'll get a polite message saying 'This account is currently not available.' This message can be changed with the file /etc/nologin.txt.
+
+### Detail of ``/etc/shadow``
+
+![](images/password.png)
+
+-   1. Username
+-   2. Password:
+    -   \$1\$ is MD5
+    -   \$6\$ is SHA-512
+-   3. Last password change (lastchanged)
+-   4. Minimum
+-   5. Maximum
+-   6. Warn
+-   7. Inactive
+-   8. Expire
+
+### Detail of ``/etc/group``
+
+![Group](images/group.png)
+
+1.  group_name
+2.  Password
+3.  Group ID
+4.  Group List
+
+## chmod
+
+``777`` => owner | group | other
+
+Octal = 0, Binary = 000, File Mode = ---
+Octal = 1, Binary = 001, File Mode = --x
+Octal = 2, Binary = 010, File Mode = -w-
+...
+Octal = 7, Binary = 111, File Mode = rwx
+
+-   ### u => Short for user
+-   ### g => Group owner
+-   ### o => Short for others
+-   ### a => Short for all
+
+#### u+x => Add execute permission for the owner
+#### go=rw => See following screenshot
+![](images/chmod.png)
+#### u-x => Remove execute settings from user
+#### +x => equivalent to a+x
+
+``umask`` => Set default permissions
+
+### ``setuid`` and ``setgid``
+
+When the setuid or setgid attributes are set on an executable file, then any users able to execute the file will automatically execute the file with the privileges of the file's owner (commonly root) and/or the file's group, depending upon the flags set. It will set its permissions to that of the user who created it (owner), instead of setting it to the user who launched it.
+
+### sticky bit
+
+This is often used to control access to a shared directory such as ``/tmp``.
+
+If applied to a directory, it prevents users from deleting or renaming files unless the user is either the owner of directory, the owner of file the or the superuser.
+
+``chmod u+s program``
+
+``chmod g+s dir``
+
+``chmod +t dir``
+
+
+## ``chown``: Change file owner and group
+
+``chown [owner][:[group]] file``
+
+-   bob => Change only the ownership of file 
+-   bob:users => Change owner and group
+-   :admins => Change the group owner, the file owner is unchanged
+-   bob: Changes the file owner from the current owner to user bob and changes the group owner to login group of user bob
 
 
 

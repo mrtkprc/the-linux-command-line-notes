@@ -142,9 +142,9 @@ There is an alternate syntax for command substitution. It uses backquotes instea
 
 If we place text inside double quotes, all the special characters used by shell lose their special meanings. Exceptions are following:
 
--   ## $ (Dolar sign)
--   ## \ (Backslash)
--   ## ` (Backtick)
+-   #### $ (Dolar sign)
+-   #### \ (Backslash)
+-   #### ` (Backtick)
 
 ![Double Quotes](images/double_quotes.png)
 
@@ -280,12 +280,27 @@ If applied to a directory, it prevents users from deleting or renaming files unl
 -   :admins => Change the group owner, the file owner is unchanged
 -   bob: Changes the file owner from the current owner to user bob and changes the group owner to login group of user bob
 
+## Process
 
 
+``ps`` => It just shows processes associated with the current terminal
+
+### To put a process in background
+
+``xlogo &``
+
+![](images/bg_process.png)
+
+``jobs`` => It shows application from started by terminal
 
 
+### Returning a Process to the Foreground
 
+``fg %1``
 
+### To stop process
 
+![](images/stop_process_and_bg.png)
 
+If windows is changed, signal will be sent to system.
 

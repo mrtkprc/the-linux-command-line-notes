@@ -302,5 +302,5 @@ If applied to a directory, it prevents users from deleting or renaming files unl
 
 ![](images/stop_process_and_bg.png)
 
-If windows is changed, signal will be sent to system.
+If window is changed, signal will be sent to system.
 

@@ -1,4 +1,4 @@
-# PART - 2 Configuration and The environment
+# (PART - 2) Configuration and The environment
 
 ## The environment
 

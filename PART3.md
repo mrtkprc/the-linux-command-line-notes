@@ -1,4 +1,5 @@
-# COMMON TASK AND ESSENTIAL TOOLS
+
+# (PART-3) COMMON TASK AND ESSENTIAL TOOLS
 
 ## Package Management
 
@@ -204,8 +205,99 @@ sort -r => sort reversely
 #### Sort with delimiter
 ![](images/sort_with_t.png)
 
+### Slicing and Dicing
 
-!!!!!!Sayfa 256'dan devam
+![Cut](images/cut_f3.png)
+
+#### Cutting character
+
+![Cut](images/cutting_character.png)
+
+### Cut based on delimiter
+
+![](images/cut_d.png)
+
+``expand`` => convert tabs to spaces
+
+### Paste merge lines of files
+
+![](images/paste.png)
+
+### Compare Files Line By Line
+
+There are two popular format at diff.
+
+1. Context format ``diff -c file1.txt file2.txt``
+
+2. Unified format ``diff -u file1.txt file2.txt``
+
+### Prepare patch format
+
+![](images/patch.png)
+
+### Editing on the fly
+
+#### Transliterate or Delete Characters
+![](images/tr_lowercase.png)
+
+### ROT13 Encryption
+![](images/tr.png)
+
+### sed - Stream editor for filtering and transforming text
+
+![](images/sed.png)
+
+#### To specify line number
+
+``sed '2s/front/back/`` => sed search on line 2. If number isnot specified, every line will be searched/replaced.
+
+## Formatting Output
+
+``nl`` equals to ``cat -n``. They show line numbers.
+
+#### fold
+
+![](images/fold.png)
+
+You can use printf like C in bash.
+
+#### Document Format Systems
+
+``groff``
+
+#### zcat
+```
+Normally, files compressed using gzip can be restored to their original form using gzip -d or gunzip commands. What if you want to view the contents of a compressed file without uncompressing it? For this purpose, you need the zcat command utility.
+```
+
+#### To create pdf from ps format
+
+![](images/ps2pdf.png)
+
+## Printing
+
+### pr - Convert text files for printing
+
+Print text files with 3 column and width 65
+
+![](images/pr_3_column_w_65.png)
+
+#### lpr => send files to default printer
+
+#### ``lpr -P printer_name``
+
+``-t`` => omit headers
+``-3`` => 3 columns
+
+![](images/a2ps.png)
+
+``lpstat`` => Display print system status.
+
+``lpq`` => Display printer queue status
+
+``lprm/cancel`` => Cancel print jobs
+
+
 
 
 

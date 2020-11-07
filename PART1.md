@@ -1,4 +1,4 @@
-# PART 1 - LEARNING SHELL
+# (PART 1) - LEARNING SHELL
 
 ``cd -`` => Change the working directory to previous working directory
 

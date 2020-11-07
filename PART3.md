@@ -142,9 +142,75 @@ f => means file
 
 ``tar czf playground.tgz``
 
+Note: z => means gzip
+Note: j => means bz2
+
 #### rsync doesn't support remote-remote synchorinization. 
 
 ## Regular expressions
+
+To use any character in regular expression, ``.(dot)`` is used.
+
+^ => Find at beginning.
+
+$ => Find at ending.
+
+#### To use bracket expansions and character classes
+
+``grep -h '[bg]zip' dirlist*.txt``
+
+-h => suppress output file name
+
+#### Negation
+``grep -h '[^bg]zip' dirlist*.txt``
+
+``grep -h '^[A-Z]' dirlist.txt``
+
+## Text Processing
+
+### sort command
+
+![sort](images/sort_command.png)
+
+sort -n => sort inputs numerically
+
+sort -r => sort reversely
+
+### sort input based on definite column
+
+(It starts with column 1)
+
+![SortColumn](images/sort_column.png)
+
+``sort --key=1,1 --key=2n distros.txt``
+
+|         |       |           |
+|---------|-------|-----------|
+| Fedora  |5      |03/20/2006 |
+| Fedora  |6      |10/24/2006 |
+| Suse    |10.1   |05/11/2206 |
+| Ubuntu  |6.06   |06/01/2006 |
+| Ubuntu  |7.10   |10/18/2007 |
+| Ubuntu  |8.10   |10/30/2008 |
+
+``--key=1,1`` => means start at field 1 and end at field 1.
+
+``--key=2n`` => means field 2 is sort key and that the sort should be numeric.
+
+``sort -k 3.7nbr -k 3.1 nbr -k 3.4nbr distros.txt``
+
+``-k 3.7nbr`` => means that use a sort key that begins at the seventh character within third field, n means numeric, b means that suppress the leading spaces. r means reverse.
+
+#### Sort with delimiter
+![](images/sort_with_t.png)
+
+
+!!!!!!Sayfa 256'dan devam
+
+
+
+
+
 
 
 

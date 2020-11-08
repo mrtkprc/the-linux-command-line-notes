@@ -127,6 +127,7 @@ fi
 |OR        | -o   | \|\|           |
 |NOT       | !    | !              |
 
+## Strings and Numbers
 
 ### IFS (Internal Field Seperator)
 
@@ -141,3 +142,107 @@ fi
 ![](images/default_set.png)
 
 !!!!!!!!!!Sayfa 419'dan devam
+
+### Error if empty
+
+![](images/error_if_empty.png)
+
+### Expansion That Return Variable NAmes
+
+``${!prefix*}
+
+### Length of String
+
+![](images/length_of_string.png)
+
+### Extract a portion of the string
+
+```
+${parameter:offset}
+${parameter:offset:length}
+
+```
+
+![](images/removing_leading.png)
+
+
+### To remove text from end of string.
+
+```
+${parameter%pattern}
+${parameter%%pattern}
+```
+
+### Find and replace
+
+![](images/find_and_replace.png)
+
+## EXOTICA
+
+#### Group Command
+
+![](images/group_command.png)
+
+
+### Process substitiun
+
+If pipeline exists, then subshell will be applied. Therefore, environment variables in subshell get lost after subshell processing is ended up. To solve problem, we can employ process substitution like this.
+
+
+![](images/process_substitiun.png)
+
+### Traps
+
+We can use to handle received signals for script and we can ignore this signal.
+
+To use this, we can ``traps``
+
+### Temporary files
+
+It is important to give temporary files nonpredictable file names. This avoids an exploit known as a ``temp race attack``
+
+![](images/temp_files.png)
+
+### Asynchronous Execution with wait
+
+#### Parent
+
+```
+#!/bin/bash
+echo "Parent: starting..."
+./async-child.sh &
+pid=$! # Give last job id
+echo "Parent: child (PID=$pid) launched"
+echo "Parent continuing"
+sleep 2
+echo "Parent: pausing to wait for child to finish...."
+wait $pid
+echo "Parent: child is finished. Continuing"
+echo "Parent: parent is done. Exiting"
+```
+
+#### Child
+
+```
+#!/bin/bash
+echo "Child: child is running..."
+sleep 5
+echo "Child: chils is done. Exiting."
+```
+
+### Codes
+
+![](images/async_parent_child.png)
+
+### Result
+
+![](images/running_parent_child.png)
+
+### Named Pipes
+
+![](images/named_pipe.png)
+
+To create pipe, ``mkfifo`` is used.
+
+After ``ls -l sth``, ``ls`` command wait to meet another process. In this example, responding process is ``cat``.
+
